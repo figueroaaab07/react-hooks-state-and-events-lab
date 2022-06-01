@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import Item from "./Item";
 
 function ShoppingList({ items }) {
-  const [filterBy, setFilterBy] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   function handleFilterChange(event) {
-    setFilterBy(event.target.value);
+    setSelectedCategory(event.target.value);
   }
 
   const itemsToDisplay = items.filter((item) => {
-    if (filterBy === "All") {
+    if (selectedCategory === "All") {
       return true;
     } else {
-      return item.category === filterBy;
+      return item.category === selectedCategory;
     }
   });
   
